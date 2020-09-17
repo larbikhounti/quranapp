@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -26,9 +26,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor : green[100]
     }
   }));
-
+ 
 const Listofmokrie = (props) => {
-    
+  
+  
     const classes = useStyles();
   
    return (
@@ -38,13 +39,13 @@ const Listofmokrie = (props) => {
              {
               props.data.map((element,i)=>{
                   return(
-                    <ListItem key={props.data[i].number}>
+                    <ListItem  key={props.data[i].number}>
                     <ListItemAvatar>
-                    <Avatar  className={classes.roundedplay} >
+                    <Avatar onClick={props.itemclicked.bind(this, i)} key={props.data[i].number} className={classes.roundedplay} >
                     <PlayArrowIcon className={classes.playbutton} />
                     </Avatar>
                      </ListItemAvatar>
-                     <ListItemText primary={`- ${props.data[i].name} - `} secondary={props.data[i].englishName}  />
+                     <ListItemText primary={`${props.data[i].name}`} secondary={props.data[i].englishName}  />
                      <ListItemText primary={props.data[i].numberOfAyahs} secondary={props.data[i].revelationType}  />
                     </ListItem>
                   )

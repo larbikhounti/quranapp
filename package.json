@@ -12,6 +12,7 @@
     "react": "^16.13.1",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.13.1",
+    "react-player": "^2.6.2",
     "react-scripts": "3.4.3",
     "tachyons": "^4.12.0"
   },
