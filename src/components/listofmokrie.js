@@ -30,20 +30,28 @@ const useStyles = makeStyles((theme) => ({
 const Listofmokrie = (props) => {
     
     const classes = useStyles();
-   const {number,name,englishName,englishNameTranslation,numberOfAyahs,revelationType} = props.data;
-    return (
+  
+   return (
         
         <List className={classes.root}>
              <Scrollbars style={{ width: "100%", height :"29em" }}> 
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar  className={classes.roundedplay} >
-              <PlayArrowIcon className={classes.playbutton} />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary={`- ${name} - `} secondary={englishName}  />
-       <ListItemText primary={numberOfAyahs} secondary={revelationType}  />
-        </ListItem>
+             {
+              props.data.map((element,i)=>{
+                  return(
+                    <ListItem key={props.data[i].number}>
+                    <ListItemAvatar>
+                    <Avatar  className={classes.roundedplay} >
+                    <PlayArrowIcon className={classes.playbutton} />
+                    </Avatar>
+                     </ListItemAvatar>
+                     <ListItemText primary={`- ${props.data[i].name} - `} secondary={props.data[i].englishName}  />
+                     <ListItemText primary={props.data[i].numberOfAyahs} secondary={props.data[i].revelationType}  />
+                    </ListItem>
+                  )
+              })
+         
+          }
+        
         </Scrollbars>
       </List>
     )

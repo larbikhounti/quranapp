@@ -4,29 +4,35 @@ const axios = require('axios');
 class Getquran extends Component{
     constructor(){
         super()
+        this.state = {
+            ayat : []
+        }
     }
-    componentDidMount(){
-        axios.get('http://api.alquran.cloud/v1/surah')
-        .then(response => console.log(response.data))
-   
+ 
+     componentDidMount(){
+       axios.get('http://api.alquran.cloud/v1/surah')
+        .then( response =>{
+           
+               this.setState({ayat : response.data.data})
+           // console.log(this.state.ayat)
+        })
         .catch(function (error) {
           // handle error
-          console.log(error);
+         // console.log(error);
         })
-        
     }
-     demo = {
-        number: 1,
-        name: "سُورَةُ ٱلْفَاتِحَةِ",
-        englishName: "Al-Faatiha",
-        englishNameTranslation: "The Opening",
-        numberOfAyahs: 7,
-        revelationType: "Meccan"
-      }
     render(){
-        return(
-            <Mycontainer data={this.demo}/>
-        )
+        const ayat = this.state.ayat;
+       // console.log(ayat)
+        if(ayat === []){
+            return <h1>loading..</h1>
+        }else{
+           return (<Mycontainer data={this.state.ayat} />)
+           
+               
+          
+        }
+       
     }
 }
 export default Getquran;
