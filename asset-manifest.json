@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/quranapp/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/quranapp/static/js/main.7151f580.chunk.js",
+    "main.js.map": "/quranapp/static/js/main.7151f580.chunk.js.map",
+    "runtime-main.js": "/quranapp/static/js/runtime-main.a0d422bd.js",
+    "runtime-main.js.map": "/quranapp/static/js/runtime-main.a0d422bd.js.map",
+    "static/css/2.3c03f26f.chunk.css": "/quranapp/static/css/2.3c03f26f.chunk.css",
+    "static/js/2.2a17b07a.chunk.js": "/quranapp/static/js/2.2a17b07a.chunk.js",
+    "static/js/2.2a17b07a.chunk.js.map": "/quranapp/static/js/2.2a17b07a.chunk.js.map",
+    "index.html": "/quranapp/index.html",
+    "precache-manifest.eb9261bc7d57d94c493c47a0e1163cb2.js": "/quranapp/precache-manifest.eb9261bc7d57d94c493c47a0e1163cb2.js",
+    "service-worker.js": "/quranapp/service-worker.js",
+    "static/css/2.3c03f26f.chunk.css.map": "/quranapp/static/css/2.3c03f26f.chunk.css.map",
+    "static/css/main.5ecd60fb.chunk.css.map": "/quranapp/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.2a17b07a.chunk.js.LICENSE.txt": "/quranapp/static/js/2.2a17b07a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a0d422bd.js",
+    "static/css/2.3c03f26f.chunk.css",
+    "static/js/2.2a17b07a.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.7151f580.chunk.js"
+  ]
+}
