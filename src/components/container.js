@@ -82,7 +82,7 @@ const Mycontainer = (props) => {
   }
   const getSoraById = (number)=>{
     //get aya by id
-    axios.get(`http://api.alquran.cloud/v1/surah/${number}/ar.alafasy`)
+    axios.get(`https://api.alquran.cloud/v1/surah/${number}/ar.alafasy`)
         .then( response =>{
            //console.log(response.data.data.ayahs)
            //quranData = response.data.data.ayahs
@@ -123,7 +123,7 @@ const Mycontainer = (props) => {
             }
             </Grid>
             <Grid  className={classes.paper} item  xs ={12} md={4} lg={4}>
-            <Listofmokrie data={props.data} itemclicked={itemclicked}/>
+            <Listofmokrie data={props.data} itemclicked={itemclicked} search ={props.search}/>
            </Grid>
         </Grid>
     )

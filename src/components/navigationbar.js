@@ -37,8 +37,9 @@ export default function PrimarySearchAppBar() {
       <AppBar className = {classes.bar} position="static">
 
          <Typography  className ={classes.mystyle} variant="h6" noWrap>
-         الْقُرْآن الْكَرِيْم  
+         الْقُرْآن الْكَرِيْم 
           </Typography>
+          
       </AppBar>
      
      

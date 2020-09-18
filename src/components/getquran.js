@@ -5,12 +5,15 @@ class Getquran extends Component{
     constructor(){
         super()
         this.state = {
-            ayat : []
+            ayat : [],
+            searching: "",
+            
+
         }
     }
- 
+    
      componentDidMount(){
-       axios.get('http://api.alquran.cloud/v1/surah')
+       axios.get('https://api.alquran.cloud/v1/surah')
         .then( response =>{
            
                this.setState({ayat : response.data.data})
@@ -21,16 +24,25 @@ class Getquran extends Component{
          // console.log(error);
         })
     }
+    search  = (event)=>{
+     this.setState({searching : event.target.value} )
+     
+    }
     render(){
+      
+     
+
         const ayat = this.state.ayat;
        // console.log(ayat)
         if(ayat === []){
             return <h1>loading..</h1>
         }else{
-           return (<Mycontainer data={this.state.ayat} />)
-           
-               
+      let filteredayat =  this.state.ayat.filter(
+          aya=>  aya.name.toLowerCase().includes(this.state.searching.toLowerCase()))
           
+           return (<Mycontainer data={this.state.ayat}  search={this.search} />)
+           
+        
         }
        
     }
