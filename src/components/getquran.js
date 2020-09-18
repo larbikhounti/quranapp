@@ -40,7 +40,7 @@ class Getquran extends Component{
       let filteredayat =  this.state.ayat.filter(
           aya=>  aya.name.toLowerCase().includes(this.state.searching.toLowerCase()))
           
-           return (<Mycontainer data={this.state.ayat}  search={this.search} />)
+           return (<Mycontainer data={filteredayat}  search={this.search} />)
            
         
         }

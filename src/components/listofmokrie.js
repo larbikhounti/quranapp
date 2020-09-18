@@ -46,8 +46,6 @@ const useStyles = makeStyles((theme) => ({
   }));
  
 const Listofmokrie = (props) => {
-  let skeltonArray = [0,1,2,3,4,5]
-  
     const classes = useStyles();
   
    return (
@@ -65,7 +63,7 @@ const Listofmokrie = (props) => {
              <Scrollbars style={{ width: "100%", height :"29em" }}> 
              {
                 
-               props.data[0] == undefined? 
+               props.data[0] === undefined? 
                <div>
                  <ListItem className = {classes.pinterlist} >
                     <ListItemAvatar>
@@ -80,10 +78,10 @@ const Listofmokrie = (props) => {
                :
               props.data.map((element,i)=>{
                   return(
-                    <ListItem className = {classes.pinterlist} onClick={props.itemclicked.bind(this, i)} key={props.data[i].number}>
-                    <ListItemAvatar>
-                    <Avatar  key={props.data[i].number} className={classes.roundedplay} >
-                    <HearingIcon className={classes.playbutton} />
+                    <ListItem id={props.data[i].number} className = {classes.pinterlist} onClick={props.itemclicked.bind(this, i)} key={props.data[i].number}>
+                    <ListItemAvatar id={props.data[i].number} onClick={props.itemclicked.bind(this, i)}>
+                    <Avatar id={props.data[i].number}  onClick={props.itemclicked.bind(this, i)} className={classes.roundedplay}  >
+                    <HearingIcon id={props.data[i].number}  onClick={props.itemclicked.bind(this, i)} className={classes.playbutton} />
                     </Avatar>
                      </ListItemAvatar>
                      <ListItemText primary={`${props.data[i].name}`} secondary={props.data[i].englishName}  />

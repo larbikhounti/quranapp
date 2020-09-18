@@ -6,7 +6,6 @@ import Listofmokrie from '../components/listofmokrie';
 import ReactPlayer from 'react-player'
 import Typography from '@material-ui/core/Typography';
 import { useMediaQuery } from 'react-responsive'
-import FadeIn from 'react-fade-in';
 
 const axios = require('axios');
 
@@ -78,7 +77,8 @@ const Mycontainer = (props) => {
   }
   const itemclicked = (i, event)=>{
     setCount(0)
-    getSoraById(i+1)
+    getSoraById(event.target.getAttribute('id'))
+    console.log(event.target.getAttribute('id'))
   }
   const getSoraById = (number)=>{
     //get aya by id
@@ -110,20 +110,20 @@ const Mycontainer = (props) => {
 
              {
                isTabletOrMobile === true?<Typography className ={classes.ayatsText}>
-               <FadeIn>
+              
                {quranData[count].text}
-               </FadeIn>
+               
              </Typography>: <Typography className ={classes.ontabletorphone}>
-               <FadeIn className= {classes.fontsize}>
+              
                {quranData[count].text}
-               </FadeIn>
+               
              </Typography>
              }
                </div>
             }
             </Grid>
             <Grid  className={classes.paper} item  xs ={12} md={4} lg={4}>
-            <Listofmokrie data={props.data} itemclicked={itemclicked} search ={props.search}/>
+            <Listofmokrie data={props.data}  itemclicked={itemclicked} search ={props.search}/>
            </Grid>
         </Grid>
     )
