@@ -2,10 +2,11 @@ import React,{useState} from 'react'
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
-import Paper from '@material-ui/core/Paper';
 import Listofmokrie from '../components/listofmokrie';
 import ReactPlayer from 'react-player'
-import { Highlight } from '@material-ui/icons';
+import Typography from '@material-ui/core/Typography';
+import FadeIn from 'react-fade-in';
+
 const axios = require('axios');
 
 const useStyles = makeStyles((theme) => ({
@@ -24,8 +25,16 @@ const useStyles = makeStyles((theme) => ({
       marginRight : "1em"
     },
     player : {
-      width : "10em",
-      height : "10em"
+     
+      height : "100px"
+    },
+    ayatsText : {
+      backgroundColor :"white",
+      color : green[600],
+      textAlign: "center",
+      fontSize : "3em",
+      marginTop: "3em",
+      width : "100%"
     }
   }));
 
@@ -35,16 +44,21 @@ const useStyles = makeStyles((theme) => ({
 const Mycontainer = (props) => {
   let [quranData,setQranData] = useState([])
   let [count,setCount] = useState(0)
-  let [diditend,setDiditend] = useState(true)
+
   const onEnded = ()=>{
     if(count < quranData.length-1){
       console.log("ended")
       setCount(count+1)
       console.log(count)
-    }else{
-      setDiditend(true);
+     // console.log(quranData[count].text)
     }
-   
+    
+  }
+  const onPlay = ()=>{
+    if(count <= quranData.length-1){
+     
+      console.log(quranData[count].text)
+    }
     
   }
   const itemclicked = (i, event)=>{
@@ -74,13 +88,20 @@ const Mycontainer = (props) => {
             <Grid  className={classes.paper}  item  xs ={12} md={8} lg={8}>
             {
               
-            quranData[0] === undefined  ? null : <ReactPlayer onEnded={onEnded} 
+            quranData[0] === undefined  ? null :<div> <ReactPlayer height ="2em" width ="100%" controls={true} onPlay={onPlay} onEnded={onEnded} 
              className={classes.player} 
-             url={ diditend? quranData[count].audio : null  } 
+             url={ quranData[count].audio  } 
              playing ={true}  />
-}
+             
+             <Typography className ={classes.ayatsText}>
+               <FadeIn>
+               {quranData[count].text}
+               </FadeIn>
+             </Typography>
+             
 
-            
+            </div>
+            }
             </Grid>
             <Grid  className={classes.paper} item  xs ={12} md={4} lg={4}>
             <Listofmokrie data={props.data} itemclicked={itemclicked}/>
