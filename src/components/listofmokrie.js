@@ -82,11 +82,11 @@ const Listofmokrie = (props) => {
                     <ListItem className = {classes.pinterlist}  key={props.data[i].number}>
                     <ListItemAvatar id={props.data[i].number} onClick={props.itemclicked.bind(this, i)}>
                     <Avatar id={props.data[i].number}  onClick={props.itemclicked.bind(this, i)} className={classes.roundedplay}  >
-                    <HearingIcon id={props.data[i].number}  onClick={props.itemclicked.bind(this, i)} />
+                    <HearingIcon className={classes.playbutton} id={props.data[i].number}  onClick={props.itemclicked.bind(this, i)} />
                     </Avatar>
                      </ListItemAvatar>
-                     <ListItemText  className={classes.playbutton} primary={`${props.data[i].name}`} secondary={props.data[i].englishName}  />
-                     <ListItemText  className={classes.playbutton} primary={props.data[i].numberOfAyahs} secondary={props.data[i].revelationType}  />
+                     <ListItemText   primary={`${props.data[i].name}`} secondary={props.data[i].englishName}  />
+                     <ListItemText   primary={props.data[i].numberOfAyahs} secondary={props.data[i].revelationType}  />
                     </ListItem>
                   )
               })
