@@ -5,6 +5,7 @@ import { green } from '@material-ui/core/colors';
 import Listofmokrie from '../components/listofmokrie';
 import ReactPlayer from 'react-player'
 import Typography from '@material-ui/core/Typography';
+import { useMediaQuery } from 'react-responsive'
 import FadeIn from 'react-fade-in';
 
 const axios = require('axios');
@@ -33,8 +34,22 @@ const useStyles = makeStyles((theme) => ({
       color : green[600],
       textAlign: "center",
       fontSize : "3em",
-      marginTop: "3em",
-      width : "100%"
+      marginTop: "1em",
+      width : "100%",
+      height : "100%",
+
+    },
+    ontabletorphone :{
+      backgroundColor :"white",
+      color : green[600],
+      
+      marginTop: "1em",
+      
+      width : "100%",
+      textAlign: "center",
+    },
+    fontsize : {
+      fontSize: "medium",
     }
   }));
 
@@ -82,7 +97,7 @@ const Mycontainer = (props) => {
   
 
     const classes = useStyles();
-   
+    const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
     return (
         <Grid container className={classes.root}  spacing={2}>
             <Grid  className={classes.paper}  item  xs ={12} md={8} lg={8}>
@@ -92,15 +107,19 @@ const Mycontainer = (props) => {
              className={classes.player} 
              url={ quranData[count].audio  } 
              playing ={true}  />
-             
-             <Typography className ={classes.ayatsText}>
+
+             {
+               isTabletOrMobile === true?<Typography className ={classes.ayatsText}>
                <FadeIn>
                {quranData[count].text}
                </FadeIn>
+             </Typography>: <Typography className ={classes.ontabletorphone}>
+               <FadeIn className= {classes.fontsize}>
+               {quranData[count].text}
+               </FadeIn>
              </Typography>
-             
-
-            </div>
+             }
+               </div>
             }
             </Grid>
             <Grid  className={classes.paper} item  xs ={12} md={4} lg={4}>

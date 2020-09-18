@@ -7,6 +7,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { green } from '@material-ui/core/colors';
+import HearingIcon from '@material-ui/icons/Hearing';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 
@@ -20,7 +21,12 @@ const useStyles = makeStyles((theme) => ({
     },
     playbutton:{
         color:green[900],  
+        cursor : "pointer"
 
+    },
+    pinterlist : {
+      cursor : "pointer",
+      marginBottom : "5px"
     },
     roundedplay : {
         backgroundColor : green[100]
@@ -39,10 +45,10 @@ const Listofmokrie = (props) => {
              {
               props.data.map((element,i)=>{
                   return(
-                    <ListItem  key={props.data[i].number}>
+                    <ListItem className = {classes.pinterlist} onClick={props.itemclicked.bind(this, i)} key={props.data[i].number}>
                     <ListItemAvatar>
-                    <Avatar onClick={props.itemclicked.bind(this, i)} key={props.data[i].number} className={classes.roundedplay} >
-                    <PlayArrowIcon className={classes.playbutton} />
+                    <Avatar  key={props.data[i].number} className={classes.roundedplay} >
+                    <HearingIcon className={classes.playbutton} />
                     </Avatar>
                      </ListItemAvatar>
                      <ListItemText primary={`${props.data[i].name}`} secondary={props.data[i].englishName}  />
