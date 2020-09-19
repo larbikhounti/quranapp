@@ -23,7 +23,7 @@ class Getquran extends Component{
            .then( response =>{
               
                   this.setState({edition : response.data.data})
-               console.log(this.state.edition)
+              // console.log(this.state.edition)
            })
            .catch(function (error) {
              // handle error
