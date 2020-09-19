@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3b640efe999f34db0865c57fedac5bd4",
+    "revision": "dd848e95e49acad613946d07ac75bb5c",
     "url": "/quranapp/index.html"
   },
   {
-    "revision": "0a04187396f6db136773",
+    "revision": "9b4e0ba9ede663c56ef9",
     "url": "/quranapp/static/css/2.3c03f26f.chunk.css"
   },
   {
-    "revision": "cb78f8d1124390d4c023",
+    "revision": "972561f99aee3db61abb",
     "url": "/quranapp/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "0a04187396f6db136773",
-    "url": "/quranapp/static/js/2.3d6dfe96.chunk.js"
+    "revision": "9b4e0ba9ede663c56ef9",
+    "url": "/quranapp/static/js/2.7deaed50.chunk.js"
   },
   {
     "revision": "90377550dd86ed303dd30d8f487872de",
-    "url": "/quranapp/static/js/2.3d6dfe96.chunk.js.LICENSE.txt"
+    "url": "/quranapp/static/js/2.7deaed50.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cb78f8d1124390d4c023",
-    "url": "/quranapp/static/js/main.3d98b29b.chunk.js"
+    "revision": "972561f99aee3db61abb",
+    "url": "/quranapp/static/js/main.75be0bbf.chunk.js"
   },
   {
     "revision": "7e94f2ea7ee5a82becec",
