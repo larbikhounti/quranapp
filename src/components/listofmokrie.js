@@ -18,7 +18,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
       width: '100%',
       maxWidth: 360,
+      alignSelf:"center",
       backgroundColor: theme.palette.background.paper,
+      
     },
     playbutton:{
         color:green[900],  
@@ -60,7 +62,7 @@ const Listofmokrie = (props) => {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-             <Scrollbars style={{ width: "100%", height :"29em" }}> 
+             <Scrollbars style={{ width: "100%", height :"29em",marginRight:"0px" }}> 
              {
                 
                props.data[0] === undefined? 

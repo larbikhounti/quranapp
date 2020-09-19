@@ -6,6 +6,9 @@ import Listofmokrie from '../components/listofmokrie';
 import ReactPlayer from 'react-player'
 import Typography from '@material-ui/core/Typography';
 import { useMediaQuery } from 'react-responsive'
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const axios = require('axios');
 
@@ -14,6 +17,18 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
       
       marginTop : "2em"
+    },
+    choosemokrea :{
+      backgroundColor :"white",
+      color : green[600],
+      textAlign: "center",
+      fontSize : "1em",
+      marginTop: "1em",
+      width : "100%",
+      fontWeight : "bolder",
+      borderBottom : "1px solid #A5D6A7"
+
+      
     },
     paper: {
     backgroundColor : green[200],  
@@ -58,6 +73,25 @@ const useStyles = makeStyles((theme) => ({
 const Mycontainer = (props) => {
   let [quranData,setQranData] = useState([])
   let [count,setCount] = useState(0)
+  const [anchorEl, setAnchorEl] = useState(null);
+  let [mokrie,setMokrie] = useState("ar.alafasy")
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+    
+  };
+
+  const handleClose = (event) => {
+    console.log(event.target.getAttribute("id"))
+    if(event.target.getAttribute("id") !== null){
+      setMokrie(setMokrie = event.target.getAttribute("id") )
+      setAnchorEl(null);
+    }
+    
+
+    
+    
+  };
 
   const onEnded = ()=>{
     if(count < quranData.length-1){
@@ -82,9 +116,9 @@ const Mycontainer = (props) => {
   }
   const getSoraById = (number)=>{
     //get aya by id
-    axios.get(`https://api.alquran.cloud/v1/surah/${number}/ar.alafasy`)
+    axios.get(`https://api.alquran.cloud/v1/surah/${number}/${mokrie}`)
         .then( response =>{
-           //console.log(response.data.data.ayahs)
+           console.log(response.data.data.ayahs)
            //quranData = response.data.data.ayahs
           setQranData(response.data.data.ayahs)
           // console.log(quranData.length)
@@ -123,6 +157,25 @@ const Mycontainer = (props) => {
             }
             </Grid>
             <Grid  className={classes.paper} item  xs ={12} md={4} lg={4}>
+            <Button className={classes.choosemokrea}  aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+           اضغط هنا لتغيير المقرأ
+           </Button>
+          <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        {
+         props.edition[0] !== "empty"? props.edition.map((element,i)=>{
+          return <MenuItem key={i} id={element.identifier} onClick={handleClose}>{element.name}</MenuItem>
+          }):<MenuItem  onClick={handleClose}>empty</MenuItem>
+        }
+        
+       
+      </Menu>
+
             <Listofmokrie data={props.data}  itemclicked={itemclicked} search ={props.search}/>
            </Grid>
         </Grid>
