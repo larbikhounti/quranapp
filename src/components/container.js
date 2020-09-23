@@ -24,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
       fontSize : "1em",
       marginTop: "1em",
       width : "100%",
-      maxWidth: "360px",
       fontWeight : "bolder",
-      borderBottom : "1px solid #A5D6A7"
+      borderBottom : "1px solid #A5D6A7",
+      maxWidth: "360px",
     },
     paper: {
     backgroundColor : green[200],  
