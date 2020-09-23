@@ -15,7 +15,6 @@ const axios = require('axios');
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      
       marginTop : "2em"
     },
     choosemokrea :{
@@ -25,10 +24,9 @@ const useStyles = makeStyles((theme) => ({
       fontSize : "1em",
       marginTop: "1em",
       width : "100%",
+      maxWidth: "360px",
       fontWeight : "bolder",
       borderBottom : "1px solid #A5D6A7"
-
-      
     },
     paper: {
     backgroundColor : green[200],  
