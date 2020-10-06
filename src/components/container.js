@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "360px",
       fontWeight : "bolder",
       borderBottom : "1px solid #A5D6A7",
-      maxWidth: "360px",
+      
     },
     paper: {
     backgroundColor : green[200],  
