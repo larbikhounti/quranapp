@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize : "1em",
       marginTop: "1em",
       width : "100%",
+      maxWidth: "360px",
       fontWeight : "bolder",
       borderBottom : "1px solid #A5D6A7"
 
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
     backgroundColor : green[200],  
+    width : "100%"
     },
     control: {
       padding: theme.spacing(3),
@@ -87,7 +89,7 @@ const Mycontainer = (props) => {
       setMokrie(setMokrie = event.target.getAttribute("id") )
       setAnchorEl(null);
     }
-    
+    setAnchorEl(null);
 
     
     
@@ -153,6 +155,7 @@ const Mycontainer = (props) => {
                
              </Typography>
              }
+
                </div>
             }
             </Grid>
